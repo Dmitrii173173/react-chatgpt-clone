@@ -1,26 +1,17 @@
 {
-  "scripts": {
-    "dev": "npm run dev:back & npm run dev:front",
-    "dev:back": "nodemon server.js",
-    "dev:front": "vite"
-  }
-}
-
-
-
-{
   "name": "react-chatgpt-clone",
   "private": "false",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "dev": "npm run dev:back & npm run dev:front",
     "dev:front": "vite",
     "dev:back": "nodemon server.js",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "prettier": "prettier --c .",
-    "prettier:fix": "prettier --w ."
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write ."
   },
   "dependencies": {
     "@upstash/ratelimit": "^1.0.1",

@@ -1,4 +1,14 @@
 {
+  "scripts": {
+    "dev": "npm run dev:back & npm run dev:front",
+    "dev:back": "nodemon server.js",
+    "dev:front": "vite"
+  }
+}
+
+
+
+{
   "name": "react-chatgpt-clone",
   "private": "false",
   "version": "1.0.0",

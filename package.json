@@ -4,15 +4,13 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npm run dev:back & npm run dev:front",
     "dev:front": "vite",
     "dev:back": "nodemon server.js",
     "build": "vite build",
-    "start": "npm run dev",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "prettier": "prettier --check .",
-    "prettier:fix": "prettier --write ."
+    "prettier": "prettier --c .",
+    "prettier:fix": "prettier --w ."
   },
   "dependencies": {
     "@upstash/ratelimit": "^1.0.1",

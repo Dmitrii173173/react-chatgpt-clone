@@ -7,10 +7,10 @@
     "dev:front": "vite",
     "dev:back": "nodemon server.js",
     "build": "vite build",
-    "start": "node server.js",  // Правильная команда для запуска сервера
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "prettier": "prettier --c .",
-    "prettier:fix": "prettier --w ."
+    "preview": "vite preview",
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write ."
   },
   "dependencies": {
     "@upstash/ratelimit": "^1.0.1",

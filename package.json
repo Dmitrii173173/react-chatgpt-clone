@@ -10,7 +10,8 @@
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "prettier": "prettier --check .",
-    "prettier:fix": "prettier --write ."
+    "prettier:fix": "prettier --write .",
+    "start": "node server.js"
   },
   "dependencies": {
     "@upstash/ratelimit": "^1.0.1",

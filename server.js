@@ -3,20 +3,25 @@ import cors from "cors";
 import rateLimit from "express-rate-limit";
 import { Resend } from "resend";
 import dotenv from "dotenv";
+
+// Загрузка переменных окружения
 dotenv.config();
 
+// Инициализация Resend с API ключом из переменной окружения
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
+// Настройка лимита запросов
 const limiter = rateLimit({
-  windowMs: 60 * 10000, // 10 minute
-  max: 10, // limit each IP to 100 requests per minute defined in windowMs
-  message: "Too many requests from this IP, please try again later.",
+  windowMs: 60 * 10000, // 10 минут
+  max: 10, // максимум 10 запросов с одного IP за 10 минут
+  message: "Слишком много запросов с данного IP, попробуйте позже.",
 });
 
+// Миддлвар для авторизации
 const auth = (req, res, next) => {
   if (req.headers.authorization !== process.env.VITE_AUTH_TOKEN) {
     return res.status(401).send("Unauthorized");
@@ -24,6 +29,7 @@ const auth = (req, res, next) => {
   next();
 };
 
+// Маршрут для обработки запросов
 app.post("/api/completions", auth, limiter, async (req, res) => {
   const ip =
     req.ip || req.headers["x-forwarded-for"] || req.connection.remoteAddress;
@@ -69,8 +75,9 @@ app.post("/api/completions", auth, limiter, async (req, res) => {
   }
 });
 
+// Запуск сервера
 app.listen(process.env.PORT, () => {
   console.log(
-    `Server is running on http://localhost:${process.env.PORT}/api/completions`
+    `Сервер запущен на http://localhost:${process.env.PORT}/api/completions`
   );
 });

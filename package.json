@@ -7,8 +7,8 @@
     "dev:front": "vite",
     "dev:back": "nodemon server.js",
     "build": "vite build",
+    "start": "vite preview",  // Добавляем правильную команду
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
     "prettier": "prettier --c .",
     "prettier:fix": "prettier --w ."
   },
